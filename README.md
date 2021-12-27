@@ -1,3 +1,9 @@
+<img src="/snaps/home.png">
+
+<img src="/snaps/register.png">
+
+<img src="/snaps/welcome.png">
+
 # LoginProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
