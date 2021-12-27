@@ -1,0 +1,20 @@
+<h2>REGISTRATION PAGE</h2>
+
+<form><!--</form> [formGroup]="registerationForm" (ngSubmit)="registerform()">-->
+    USER NAME: <br>
+    <input type="text" id="name" formControlName="registerUserName"placeholder="user-name">
+    <br>
+    PASSWORD: <br>
+    <input type="password" id="pw" formControlName="registerPassWord" placeholder="password">
+    <br>
+    
+    CONFIRM PASSWORD: <br>
+    <input type="password" id="re-pw" formControlName="regsiterConfirmPassWord" placeholder="retype your password">
+
+    <button class="container" type = "submit" >SUBMIT</button>
+</form>
+
+<!--<button routerLink="/home" class="container" onclick="">SUBMIT</button>-->
+
+
+
