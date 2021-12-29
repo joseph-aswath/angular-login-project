@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const fs = require('fs');
+const validate = require('/controllers/validate.js');
+const addUser = require('/controllers/addUser.js');
 /*************************************************************************** */
 const routerLogin = express.Router();
 const routerRegister = express.Router();
@@ -22,45 +24,26 @@ var userData = fs.readFileSync('./user.json',"utf8",(err)=> { console.log("error
 console.log(userData);
 /****************************************************************************** */
 /* LOGIN SECTION */
-
-routerLogin.get('/api/login',(req,res)=>{
-    console.log("login router : working");
-});
-
+routerLoginLogin.get('/api/login',validate(req));
 /*
-    //linear search
-    for (var i=0; i< userData.length; i++){
-        if( name==userData[i].name && pw == userData[i].pw){
-            router.navigate('./welcome');
-        }
-    }
-*/   
+routerLogin.get('/api/login',(req,res)=>{
+    validate(req);
+    console.log("login router : working");
+    //acquire login info & display on console -> test 1 
+});
+*/
+   
 
 /******************************************************************************* */
 /* REGISTER SECTION */
+routerRegister.get('api/register',addUser(req));
+/*
 routerRegister.get('api/register',(req,res)=>{
+    addUser(req);
     console.log("register router: working");
-
-    //parse data & store it as object 
-
-    /* obj template
-    var newUser = {
-     name : req.body.name,
-     pw : req.body.pw
-    }
-    */
-
-    /*
-    var newUser ={
-        name:" ",
-        pw:" "
-    };
-    userData.push(newUser);
-    console.log("registration : success");
-    router.navigate('./home');
-    */
-    
+    //acquire register info & display on console -> test 2 
 });
+*/
 
 /******************************************************************************* */
 /* PORT SETTINGS */

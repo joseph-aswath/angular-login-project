@@ -16,29 +16,48 @@ export class RootService {
    
   api = 'http://localhost:9000';
 
-  loginForm = new FormGroup({
+  loginForm:any = new FormGroup({
     loginUserName : new FormControl('') ,
     loginPassWord : new FormControl('')
   });
 
   loginform(){
-    var loginFormData = new FormData();
-    return this.http.get<any>('');
+    console.log("angular login request function");
+
+    var loginFormData:any = new FormData();
+
+    /*append --> user name*/ 
+    loginFormData.append("loginUserName",this.loginForm.get('loginUserName').value); 
+
+    /*append --> pass word*/ 
+    loginFormData.append("loginPw", this.loginForm.get('loginPassWord').value); 
+
+    return this.http.get<any>('api/login',loginFormData);
+    
   }
 
-  registerationForm = new FormGroup({
+  registerationForm:any = new FormGroup({
     registerUserName: new FormControl(''),
     registerPassWord: new FormControl(''),
     registerConfirmPassWord: new FormControl('')
   });
 
   registerform(){
-    var registerFormData = new FormData();
-    //return this.http.post<any>('');
+    console.log("angular registration request function");
+
+    var registerFormData:any = new FormData();
+    
+    /*append -->  user name */
+    registerFormData.append("registerUserName",this.registerationForm.get('registerUserName').value);
+
+    /*append --> pass word*/
+    registerFormData.append("registerPw",this.registerationForm.get('registerPassword').value);
+
+    /*append --> confirm pass word */
+    registerFormData.append("registerConfirmPw",this.registerationForm.get('registerConfirmPassword').value);
+
+    return this.http.post<any>('api/register',registerFormData);
   }
-
-
-
 }
 
 /*
@@ -74,3 +93,7 @@ export class RootService {
   } 
   */
 
+/*
+   USING OBSERVABLES THAT HAS OUR 2 FUNCTIONS AS A COLLECTION OF EXECUTABLES 
+
+ */
