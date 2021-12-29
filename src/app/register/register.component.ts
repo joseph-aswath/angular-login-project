@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RootService } from '../root/root.service';
+import { RootService } from '../_root/root.service';
 //import { FormControl, FormGroup } from '@angular/forms';
 //import { Observable } from 'rxjs';
 

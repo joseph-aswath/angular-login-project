@@ -22,6 +22,7 @@ export class RootService {
   });
 
   loginform(){
+    var loginFormData = new FormData();
     return this.http.get<any>('');
   }
 
@@ -32,7 +33,8 @@ export class RootService {
   });
 
   registerform(){
-    return this.http.post<any>('');
+    var registerFormData = new FormData();
+    //return this.http.post<any>('');
   }
 
 

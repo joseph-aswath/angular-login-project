@@ -2,23 +2,31 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const fs = require('fs');
-const router = express.Router();
+/*************************************************************************** */
+const routerLogin = express.Router();
+const routerRegister = express.Router();
+const routerWelcome = express.Router();
 /*************************************************************************** */
 const app = express();
 //const Routers = require('./routes.js');
 /***************************************************************************** */
 /* app.use */
+app.use(routerLogin);
+app.use(routerRegister);
+app.use(routerWelcome);
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:false}));
 /****************************************************************************** */
 /*READING JSON & SAVING IT AS AN OBJECT*/
 var userData = fs.readFileSync('./user.json',"utf8",(err)=> { console.log("error") });
 console.log(userData);
 /****************************************************************************** */
 /* LOGIN SECTION */
-app.get('/api/login', (req,res) => {
-    res.send(`node server running on : ${port}`);
-    console.log("login: success");
+
+routerLogin.get('/api/login',(req,res)=>{
+    console.log("login router : working");
+});
+
 /*
     //linear search
     for (var i=0; i< userData.length; i++){
@@ -27,17 +35,22 @@ app.get('/api/login', (req,res) => {
         }
     }
 */   
-});
+
 /******************************************************************************* */
 /* REGISTER SECTION */
-app.get('api/register',(req,res)=>{
+routerRegister.get('api/register',(req,res)=>{
+    console.log("register router: working");
+
     //parse data & store it as object 
+
     /* obj template
     var newUser = {
      name : req.body.name,
      pw : req.body.pw
     }
     */
+
+    /*
     var newUser ={
         name:" ",
         pw:" "
@@ -45,7 +58,7 @@ app.get('api/register',(req,res)=>{
     userData.push(newUser);
     console.log("registration : success");
     router.navigate('./home');
-
+    */
     
 });
 
