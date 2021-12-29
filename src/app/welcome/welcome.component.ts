@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RootService } from '../root/root.service';
+import { RootService } from '../_root/root.service';
 
 @Component({
   selector: 'app-welcome',
