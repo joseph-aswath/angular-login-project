@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup,FormControl } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class RootService {
 
   constructor(private http: HttpClient, 
@@ -18,6 +20,24 @@ export class RootService {
     loginUserName : new FormControl('') ,
     loginPassWord : new FormControl('')
   });
+
+  loginform(){
+    return this.http.get<any>('');
+  }
+
+  registerationForm = new FormGroup({
+    registerUserName: new FormControl(''),
+    registerPassWord: new FormControl(''),
+    registerConfirmPassWord: new FormControl('')
+  });
+
+  registerform(){
+    return this.http.post<any>('');
+  }
+
+
+
+}
 
 /*
   //login function 
@@ -51,4 +71,4 @@ export class RootService {
     return this.http.post('api/register',RegisterFormData);
   } 
   */
-}
+

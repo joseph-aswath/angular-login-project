@@ -4,7 +4,7 @@
 
 <button class="register-btn" routerLink="/register">REGISTER</button>
 
-<form><!--[formGroup]="loginForm" (ngSubmit)="loginform()">-->
+<form [formGroup]="loginForm" (ngSubmit)="loginform()">
     USER NAME: <br>
     <input type="text" formControlName="loginUsername" id="loginUserName" placeholder="user-name">
     <br>

@@ -7,7 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RootService } from './root/root.service';
+import { RootService } from './_root/root.service';
 
 @NgModule({
   declarations: [
